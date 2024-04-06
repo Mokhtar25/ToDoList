@@ -11,11 +11,11 @@ export default class Item{
     }
     setDate(date1){
         let date = new Date(date1);
-        if (date == "Invalid Date"){
+        if (date == "Invalid Date" || date.getFullYear() == 1970){
             let date1 = new Date();
             return this.date = `${date1.getFullYear()}-${date1.getMonth()+1}-${date1.getDay()}`;
         }
-        return this.date = date
+        return this.date = date.toLocaleString()
     }
     setPrior(num){
         if (num < 0){
