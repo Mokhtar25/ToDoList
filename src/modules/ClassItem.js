@@ -1,9 +1,14 @@
 
+let id_currnet = 0;
+
+
 export default class Item{
 
     constructor(name){
         this.name = name;
         this.madeDate =  Date().toLocaleString()
+        this.id = id_currnet + 1
+        id_currnet++
     }
 
     setNotes(notes) {

@@ -43,7 +43,7 @@ function CreateGen(){
 
 
 
-        return {addItem , removeItem,items, number, project}
+        return {addItem , removeItem, getItems,items, number, project}
     }
 
 
@@ -55,8 +55,8 @@ const list2 = gens('studying');
 list2.addItem('assda', "adas", '8/8/2001', -1)
 list2.removeItem('assda')
 list.addItem(1,2,3,3)
-list.removeItem(1)
 list.addItem("this is the notes title", "this is the notes as lor em or smth ", '12-12-2009', 3)
-console.dir(list)
-console.dir(list2)
+// console.dir(list)
+console.log(list.getItems())
+// console.dir(list2)
 
