@@ -18,8 +18,10 @@ function CreateGen(){
             newItem.setPrior(important) 
 
             this.items.push(newItem) 
+            sortItems()
         }
         function getItems(){
+
             return items
         }
 
@@ -70,14 +72,12 @@ list2.itemDone('assda', true)
 list.addItem(1,2,3,3)
 
 list.addItem("this  the notestitle", " the notes as lor em or smth ", '12-12-2000', 3)
-list.addItem("this the notes itle", "tnotes as lor em or smth ", '12-12-2009', 3)
+list.addItem("this the notes itle", "tnotes as lor em or smth ", '12-12-2011', 3)
 list.addItem("this he notes title", "tis the notes em or smth ", '12-12-2011', 3)
 // console.dir(list
-list.sortItems()
-list2.sortItems()
 
-// console.log(list.getItems())
-// console.log(list.getItems()[0].date)
-// console.dir(compareAsc(list.getItems()[0].date,list.getItems()[1].date ))
-// let date = format(new Date("2014-12-30"), 'dd/MM/yyyy')
-// console.log(date)
+console.log(list.getItems())
+console.log(list.getItems()[0].date)
+console.dir(compareAsc(list.getItems()[0].date,list.getItems()[1].date ))
+let date = format(new Date("2014-12-30"), 'dd/MM/yyyy')
+console.log(date)
