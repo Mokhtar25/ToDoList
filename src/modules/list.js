@@ -44,7 +44,8 @@ function CreateGen(){
 
         function sortItems(){
 
-            // logic is here 
+            // logic is here
+            items.sort((a,b) => compareAsc(a, b));
         }
 
 
@@ -55,7 +56,7 @@ function CreateGen(){
 
 
 
-        return {addItem , removeItem, getItems,items, number, itemDone, project}
+        return {addItem , removeItem, getItems,items,sortItems, number, itemDone, project}
     }
 
 
@@ -67,9 +68,14 @@ const list2 = gens('studying');
 list2.addItem('assda', "adas", '8/8/2001', -1)
 list2.itemDone('assda', true)
 list.addItem(1,2,3,3)
-list.addItem("this is the notes title", "this is the notes as lor em or smth ", '12-12-2009', 3)
+
+list.addItem("this  the notestitle", " the notes as lor em or smth ", '12-12-2000', 3)
+list.addItem("this the notes itle", "tnotes as lor em or smth ", '12-12-2009', 3)
+list.addItem("this he notes title", "tis the notes em or smth ", '12-12-2011', 3)
 console.dir(list.getItems()[0].setDone(true))
-// console.dir(list)
+// console.dir(list
+list.sortItems()
+list2.sortItems()
 console.log(list.getItems())
 console.dir(list2.getItems())
 
