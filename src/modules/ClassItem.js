@@ -9,6 +9,7 @@ export default class Item{
         this.madeDate =  Date().toLocaleString()
         this.id = id_currnet + 1
         id_currnet++
+        this.done = false
     }
 
     setNotes(notes) {
@@ -31,6 +32,12 @@ export default class Item{
         }
 
         return this.important = num
+    }
+    setDone(kind){
+        if (kind === true){
+            return this.done = true
+        }
+        return this.done = false
     }
     
     
