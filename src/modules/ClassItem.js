@@ -2,6 +2,9 @@
 let id_currnet = 0;
 
 
+import { compareAsc, format, formatISO } from "date-fns"
+
+
 export default class Item{
 
     constructor(name){
@@ -10,18 +13,21 @@ export default class Item{
         this.id = id_currnet + 1
         id_currnet++
         this.done = false
+        this.date = false
     }
 
     setNotes(notes) {
         return this.note = notes
     }
     setDate(date1){
-        let date = new Date(date1);
-        if (date == "Invalid Date" || date.getFullYear() == 1970){
-            let date1 = new Date();
-            return this.date = `${date1.getFullYear()}-${date1.getMonth()+1}-${date1.getDay()}`;
+        let date = false; 
+        try {
+         date = format(new Date(date1), 'dd/MM/yyyy');
         }
-        return this.date = date.toLocaleString()
+        catch (error){
+            return 0
+        }
+        return this.date = date 
     }
     setPrior(num){
         if (num < 0){

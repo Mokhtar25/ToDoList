@@ -45,7 +45,7 @@ function CreateGen(){
         function sortItems(){
 
             // logic is here
-            items.sort((a,b) => compareAsc(a, b));
+            items.sort((a,b) => compareAsc(a.date, b.date));
         }
 
 
@@ -72,10 +72,12 @@ list.addItem(1,2,3,3)
 list.addItem("this  the notestitle", " the notes as lor em or smth ", '12-12-2000', 3)
 list.addItem("this the notes itle", "tnotes as lor em or smth ", '12-12-2009', 3)
 list.addItem("this he notes title", "tis the notes em or smth ", '12-12-2011', 3)
-console.dir(list.getItems()[0].setDone(true))
 // console.dir(list
 list.sortItems()
 list2.sortItems()
-console.log(list.getItems())
-console.dir(list2.getItems())
 
+// console.log(list.getItems())
+// console.log(list.getItems()[0].date)
+// console.dir(compareAsc(list.getItems()[0].date,list.getItems()[1].date ))
+// let date = format(new Date("2014-12-30"), 'dd/MM/yyyy')
+// console.log(date)
