@@ -1,4 +1,4 @@
-import CreateGen from "./list.js"; 
+import CreateGen from "./list"; 
 
 const maker = CreateGen()
 const listMaker = (project_name) =>{

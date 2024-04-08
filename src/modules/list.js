@@ -1,4 +1,4 @@
-import Item from "./ClassItem.js";
+import Item from "./ClassItem";
 
 import { compareAsc, format, formatISO } from "date-fns"
 
