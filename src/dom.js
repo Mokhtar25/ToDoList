@@ -86,8 +86,8 @@ export default function DomHandel(){
     function alertmessage(mess){
         const alert = document.querySelector('.alert')
         alert.textContent = mess
-        alert.classList.remove('alert_hide')
-        setTimeout(()=> alert.classList.add("alert_hide"), 5000)
+        alert.classList.add('alert_show')
+        setTimeout(()=> alert.classList.remove("alert_show"), 5000)
         
     }
 

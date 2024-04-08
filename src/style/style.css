@@ -14,9 +14,17 @@
 
 
 }
-.alert_hide{
-    display: none;
+.alert{
+  right: -100%; /* Initially hide the alert off the left side */
+    transform: translate(50%, 10%);
+     transition: right 0.5s ease-in-out;
 }
+
+.alert_show{
+     right: 10%;
+}
+
+
 html, body{
  padding: 0 0 ;
  margin:  0 0;
