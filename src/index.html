@@ -7,13 +7,34 @@
         <!-- <link href="style/output.css" rel="stylesheet"> -->
     </head>
     <body class="bg-red-500">
-        <nav class="h-20 bg-red-500 flex items-center justify-center text-white font-mono text-4xl">
+        <nav class="h-20 bg-red-500 flex items-center justify-center text-white font-mono border-b-2 border-black text-4xl">
             To Do List
         </nav>
     
         <div class="main grid grid-cols-4 ">
-        <sidebar class="bg-red-400 col-end-2 border-black  border-r-2 p-3 text-center">
-        <h1 class="text-4xl text-white font-bold top-1 bg-red-400">Projects</h1> 
+
+        <sidebar class="bg-gradient-to-t from-red-500 to-red-400 col-end-2 border-black  border-r-2 p-3 text-center">
+
+        <div class="flex justify-between p-4 items-center">
+
+            <h1 class="text-4xl text-white font-bold top-1 ">Projects</h1> 
+
+            <div class="add_project_btn pt-2 rounded-full text-white p-3 text-3xl border-white border-2 w-[45px] h-[45px] flex  justify-center items-center hover:bg-red-500 hover:cursor-pointer active:bg-white ease-in-out duration-100 hover:scale-110">+</div>
+
+            <dialog open class="modal border-red-50 top-[20%] border-4 h-[40%] w-[40%] min-w-52 rounded-2xl drop-shadow-2xl bg-red-400 flex flex-col justify-center items-center gap-5" id="modal">
+
+                <h2 class="text-white text-4xl font-bold mb-8">Add a new Project</h2>
+                    <input type="text" class="name w-48 h-10 p-4 rounded-2xl border-gray-50 border-2 focus:outline-red-100" placeholder="Project name">
+
+            <div class="exit_project_btn absolute bg-red-600 top-[10%] right-[5%] rounded-full text-white p-3 text-xl border-white border-2 w-[35px] h-[35px] flex  justify-center items-center hover:bg-red-500 hover:cursor-pointer active:bg-white ease-in-out duration-100 hover:scale-110">X</div>
+                <div class="submit_project rounded-2xl hover:bg-red-300 duration-75 select-none hover:cursor-pointer p-4 w-28 h-10 active:bg-white flex items-center justify-center bg-red-50">Save</div>
+
+
+
+
+            </dialog>
+        </div>
+
         <div class="project_list flex flex-col mt-8 pl-3 gap-3">
             <div  class="project_item bg-red-500">project one</div>
             <div class="project_item ">project one</div>

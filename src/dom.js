@@ -3,9 +3,10 @@ import ProjectGen from './modules/project.js'
 
 export default function DomHandel(){
     
-    let add_project_btn = document.querySelector('class');
+    const add_project_btn = document.querySelector('.add_project_btn');
     let add_note_btn = document.querySelector('class');
     let sidemeanu = document.querySelector('.project_list');
+    
     
     function addProject(project){
 
@@ -23,7 +24,6 @@ export default function DomHandel(){
 
     function refresh(){
         
-    add_project_btn = document.querySelector('class');
     add_note_btn = document.querySelector('class');
     sidemeanu = document.querySelector('.project_list');
     }
@@ -33,6 +33,24 @@ export default function DomHandel(){
         alert(list.getItems()[0].note)
     }
 
+
+
+
+
+
+
+
+
+    function functionality(){
+
+    add_project_btn.addEventListener('click', ()=>{
+        
+    })
+
+
+
+
+    }
     
 
 

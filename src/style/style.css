@@ -46,7 +46,7 @@ sidebar{
     cursor: pointer;
 }
 .project_item:active{
-    background-color: white;
+    background-color: #fecaca;
 
     border-left: 20px solid white;
     transition: all 50ms ease-out;
