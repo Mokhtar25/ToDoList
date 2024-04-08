@@ -2,7 +2,7 @@ import Item from "./ClassItem.js";
 
 import { compareAsc, format, formatISO } from "date-fns"
 
-function CreateGen(){
+export default function CreateGen(){
     let listnum = 0
 
     return function Createlist(pro){
@@ -46,15 +46,8 @@ function CreateGen(){
 
         function sortItems(){
 
-            // logic is here
             items.sort((a,b) => compareAsc(a.date, b.date));
         }
-
-
-
-
-
-
 
 
 
@@ -64,20 +57,4 @@ function CreateGen(){
 
 }
 
-const gens = CreateGen();
-const list = gens('project')
-const list2 = gens('studying');
-list2.addItem('assda', "adas", '8/8/2001', -1)
-list2.itemDone('assda', true)
-list.addItem(1,2,3,3)
 
-list.addItem("this  the notestitle", " the notes as lor em or smth ", '12-12-2000', 3)
-list.addItem("this the notes itle", "tnotes as lor em or smth ", '12-12-2011', 3)
-list.addItem("this he notes title", "tis the notes em or smth ", '12-12-2011', 3)
-// console.dir(list
-
-console.log(list.getItems())
-console.log(list.getItems()[0].date)
-console.dir(compareAsc(list.getItems()[0].date,list.getItems()[1].date ))
-let date = format(new Date("2014-12-30"), 'dd/MM/yyyy')
-console.log(date)
