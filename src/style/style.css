@@ -7,13 +7,11 @@
     transition: all 500ms ease-in-out;
 
 }
-
+:root{ scrollbar-width: none }
 ::-webkit-scrollbar{
     width: 0px;
-
-
-
 }
+
 .alert{
   right: -100%; /* Initially hide the alert off the left side */
     transform: translate(50%, 10%);

@@ -554,6 +554,10 @@ video {
   --tw-contain-style:  ;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
@@ -858,6 +862,10 @@ video {
 *{
   box-sizing: border-box;
   transition: all 500ms ease-in-out;
+}
+
+:root{
+  scrollbar-width: none
 }
 
 ::-webkit-scrollbar{

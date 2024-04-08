@@ -97,10 +97,7 @@ export default function DomHandel(){
 
 
 
-const dom = DomHandel()
+const domc = DomHandel()
 
-const test = ProjectGen()
-const pro = test("school")
-pro.list.addItem("test project","notes is here","12-12-2000",2)
-dom.addProject(pro)
+domc.addProject('school')
 
