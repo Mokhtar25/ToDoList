@@ -4,6 +4,7 @@ import ProjectGen from './modules/project.js'
 export default function DomHandel(){
     
     const add_project_btn = document.querySelector('.add_project_btn');
+    const close_project = document.querySelector('.exit_project_btn')
     let add_note_btn = document.querySelector('class');
     let sidemeanu = document.querySelector('.project_list');
     
@@ -43,15 +44,25 @@ export default function DomHandel(){
 
     function functionality(){
 
+        const dialog = document.querySelector('#modal');
+        dialog.close()
     add_project_btn.addEventListener('click', ()=>{
         
-    })
+        dialog.show()
 
+        
+    })
+        close_project.addEventListener('click', ()=>{
+            const input = document.querySelector('.add_project input')
+            input.value = ""
+            dialog.close()
+        })
 
 
 
     }
     
+    functionality()
 
 
     return {addProject, refresh, displayMain}

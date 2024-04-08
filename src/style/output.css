@@ -1008,6 +1008,10 @@ sidebar{
   transition: all 50ms ease-out;
 }
 
+.open\:flex[open] {
+  display: flex;
+}
+
 .hover\:scale-100:hover {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
