@@ -554,6 +554,10 @@ video {
   --tw-contain-style:  ;
 }
 
+.top-1 {
+  top: 0.25rem;
+}
+
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
@@ -674,13 +678,21 @@ sidebar{
 .project_item {
   color: white;
   text-align: left;
+  border: 1.3px solid whitesmoke;
+  border-left: 7px solid whitesmoke;
+  border-radius: 0.4rem;
   font-size: 1.3rem;
   text-shadow: 0.3px 0.3px 0.3px black;
   padding: 10px;
   font-family:Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .project_item:hover{
+  border-left: 20px solid whitesmoke;
   background: rgba(255,255,255, .4);
   border-radius: .65rem;
   cursor: pointer;
@@ -688,5 +700,6 @@ sidebar{
 
 .project_item:active{
   background-color: white;
-  transition: all 100ms ease-out;
+  border-left: 20px solid white;
+  transition: all 50ms ease-out;
 }
