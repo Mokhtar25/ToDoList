@@ -20,9 +20,5 @@ export default function ProjectGen(){
     }
 }
 
-const Pmaker = ProjectGen()
-const project1 = Pmaker('school')
 
-project1.list.addItem(1,2,3,4)
 
-console.dir(project1.list.getItems())

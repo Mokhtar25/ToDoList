@@ -8,10 +8,12 @@ export default function DomHandel(){
     const close_project = document.querySelector('.exit_project_btn')
     let add_note_btn = document.querySelector('class');
     let sidemeanu = document.querySelector('.project_list');
+    const project_list = []
     
     
     function addProject(project1){
         const project = makeproject(project1) 
+        project_list.push(project)
 
         const new_div = document.createElement('div');
         new_div.classList.add('project_item');
@@ -26,6 +28,11 @@ export default function DomHandel(){
         }
     }
 
+    function addNoteManual(pname, title, notes, date, important){
+        pname.list.addNote(title, notes, date, important)
+    }
+
+
     function refresh(){
         
     add_note_btn = document.querySelector('class');
@@ -35,6 +42,7 @@ export default function DomHandel(){
     function displayMain(list){
         
         const items = list.getItems()
+        console.log(items)
 
     }
 
@@ -68,18 +76,13 @@ export default function DomHandel(){
         save_btn.addEventListener('click',()=>{
             console.log(input.value, '123')
             if (input.value == ""){
-                const alert = document.querySelector('.alert')
                 alertmessage("Please enter a Valid Project name")
-                
-                return 
 
             }
             else{
                 addProject(input.value)
                 dialog.close()
                 input.value = ""
-
-                return 
             }
         })
 
@@ -97,7 +100,7 @@ export default function DomHandel(){
     }
 
 
-    return {addProject, refresh, displayMain}
+    return {addProject, refresh, addNoteManual, displayMain, project_list}
 }
 
 
