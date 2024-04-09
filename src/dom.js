@@ -1,13 +1,13 @@
-import ProjectGen from './modules/project.js'
+import ProjectGen from "./modules/project";
 
 
 export default function DomHandel(){
     
+    const makeproject = ProjectGen()
     const add_project_btn = document.querySelector('.add_project_btn');
     const close_project = document.querySelector('.exit_project_btn')
     let add_note_btn = document.querySelector('class');
     let sidemeanu = document.querySelector('.project_list');
-    const makeproject = ProjectGen()
     
     
     function addProject(project1){
@@ -16,6 +16,7 @@ export default function DomHandel(){
         const new_div = document.createElement('div');
         new_div.classList.add('project_item');
         new_div.textContent = project.project_name
+        new_div.value = project.number
         addlistner(new_div);
         sidemeanu.appendChild(new_div)
         
@@ -32,8 +33,9 @@ export default function DomHandel(){
     }
 
     function displayMain(list){
-        // add logic here
-        alert(list.getItems()[0].note)
+        
+        const items = list.getItems()
+
     }
 
 
@@ -64,17 +66,20 @@ export default function DomHandel(){
         })
 
         save_btn.addEventListener('click',()=>{
-            console.log(input.value)
+            console.log(input.value, '123')
             if (input.value == ""){
                 const alert = document.querySelector('.alert')
                 alertmessage("Please enter a Valid Project name")
                 
+                return 
 
             }
             else{
                 addProject(input.value)
                 dialog.close()
+                input.value = ""
 
+                return 
             }
         })
 
@@ -97,7 +102,5 @@ export default function DomHandel(){
 
 
 
-const domc = DomHandel()
 
-domc.addProject('school')
 
