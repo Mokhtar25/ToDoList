@@ -61,6 +61,8 @@ export default function DomHandel(){
         const input = document.querySelector('.add_project input')
         const save_btn = document.querySelector('.submit_project')
 
+    
+
         dialog.close()
     add_project_btn.addEventListener('click', ()=>{
         
@@ -86,6 +88,13 @@ export default function DomHandel(){
             }
         })
 
+
+        input.addEventListener('keypress', (e)=>{
+            if (e.key === 'Enter'){
+                
+                save_btn.click()
+            }
+        })
 
     }
     
