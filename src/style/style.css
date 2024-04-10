@@ -4,7 +4,7 @@
 
 *{
     box-sizing: border-box;
-    transition: all 500ms ease-in-out;
+    /* transition: all 500ms ease-in-out; */
 
 }
 :root{ scrollbar-width: none }
@@ -33,10 +33,6 @@ sidebar{
     height: calc(100vh - 20px);
 
 }
-
-
-
-    
 
 .project_item {
     color: white;
