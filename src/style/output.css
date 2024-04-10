@@ -738,11 +738,6 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
-.border-gray-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity));
-}
-
 .border-gray-50 {
   --tw-border-opacity: 1;
   border-color: rgb(249 250 251 / var(--tw-border-opacity));
@@ -807,10 +802,6 @@ video {
   --tw-gradient-to: #f87171 var(--tw-gradient-to-position);
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
 .p-3 {
   padding: 0.75rem;
 }
@@ -833,10 +824,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.align-middle {
-  vertical-align: middle;
 }
 
 .font-mono {
@@ -891,16 +878,8 @@ video {
   transition-duration: 100ms;
 }
 
-.duration-200 {
-  transition-duration: 200ms;
-}
-
 .duration-75 {
   transition-duration: 75ms;
-}
-
-.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .ease-in-out {
@@ -913,7 +892,7 @@ video {
 
 *{
   box-sizing: border-box;
-  /* transition: all 500ms ease-in-out; */
+  transition: all 500ms ease-in-out;
 }
 
 :root{
@@ -943,6 +922,25 @@ html, body{
 sidebar{
   overflow-y: auto;
   height: calc(100vh - 20px);
+}
+
+.note{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-left: 14px solid #fca5a5;
+  border-bottom-color: gray;
+  border-radius: 0.5rem;
+  border-bottom-width: 2px;
+  height: 3rem;
+  padding-left: 5px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.note:hover{
+  border-left-width: 24px;
+  background-color: #f3f4f6;
 }
 
 .project_item {
@@ -979,16 +977,6 @@ sidebar{
   display: block;
 }
 
-.after\:origin-\[0\%_50\%\]::after {
-  content: var(--tw-content);
-  transform-origin: 0% 50%;
-}
-
-.after\:origin-\[50\%_0\%\]::after {
-  content: var(--tw-content);
-  transform-origin: 50% 0%;
-}
-
 .after\:origin-\[100\%_50\%\]::after {
   content: var(--tw-content);
   transform-origin: 100% 50%;
@@ -1019,11 +1007,6 @@ sidebar{
   transition-duration: 150ms;
 }
 
-.after\:duration-200::after {
-  content: var(--tw-content);
-  transition-duration: 200ms;
-}
-
 .after\:duration-500::after {
   content: var(--tw-content);
   transition-duration: 500ms;
@@ -1036,12 +1019,6 @@ sidebar{
 
 .open\:flex[open] {
   display: flex;
-}
-
-.hover\:scale-105:hover {
-  --tw-scale-x: 1.05;
-  --tw-scale-y: 1.05;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .hover\:scale-110:hover {
@@ -1085,7 +1062,7 @@ sidebar{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.active\:text-white:active {
+.active\:text-black:active {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
