@@ -28,7 +28,7 @@
 
             <dialog  class="add_project border-red-50 top-[20%] border-4 h-[40%] w-[40%] min-w-52 rounded-2xl drop-shadow-2xl bg-red-400 open:flex flex-col justify-center items-center gap-5" id="modal">
 
-                <h2 class="text-white text-4xl font-bold mb-8">Add a new Project</h2>
+                <h1 class="text-white text-4xl font-bold mb-8">Add a new Project</h1>
                     <input type="text" class="name w-48 h-10 p-4 rounded-2xl border-gray-50 border-2 focus:outline-red-100" placeholder="Project name">
 
             <div class="exit_project_btn absolute bg-red-600 top-[10%] right-[5%] rounded-full text-white p-3 text-xl border-white border-2 w-[35px] h-[35px] flex  justify-center items-center hover:bg-red-500 hover:cursor-pointer active:bg-white ease-in-out duration-100 hover:scale-110">X</div>
@@ -40,12 +40,33 @@
             </dialog>
         </div>
 
-        <div class="project_list flex flex-col mt-8 pl-3 gap-3">
-            <div  class="project_item bg-red-500">Defualt Project</div>
-        </div>
+            <div class="project_list flex flex-col mt-8 pl-3 gap-3">
+                <div  class="project_item bg-red-500">Defualt Project</div>
+            </div>
 
         </sidebar> 
-        <main class="bg-white col-span-3 "></main>
+        <main class="bg-white col-span-3 p-6">
+            <div>
+                <h1 class="text-red-500 text-4xl  [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] ">Your Notes</h1>
+                <ul>
+                    some buttons
+                </ul>
+            </div>
+
+
+            <section>
+                <div class="note  cursor-pointer  border-b-2 border-gray-200 p-2 text-xl duration-100 ease-in">hello world</div>
+                <div class="note">hello world</div>
+                <div class="note">hello world</div>
+                <div class="note">hello world</div>
+                
+            </section>
+            
+
+
+
+
+        </main>
             
 
         </div>        
