@@ -42,6 +42,7 @@ sidebar{
     border-bottom-color: #e7e5e4;
     
     border-radius: 0.5rem;
+    user-select: none;
     border-bottom-width: 2px;
     height: 3rem;
 
@@ -86,6 +87,7 @@ sidebar{
     color: white;
     text-align: left;
     border: 1.3px solid whitesmoke;
+    user-select: none;
     border-left: 7px solid whitesmoke;
 
     border-radius: 0.4rem;
@@ -118,6 +120,7 @@ sidebar{
 
 
 .trash {
+    margin-right: 20px;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -160,7 +163,12 @@ sidebar{
 }
 
 .trash:hover{
-    background-color: red;
+    background-color: rgba(220, 38, 38, 0.8);
+    transition-duration: 200ms;
+}
+.trash:active{
+    background-color: white;
+    transition-duration: 50ms ease-out;
 }
 
 
