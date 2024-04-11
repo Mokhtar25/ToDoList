@@ -1005,6 +1005,12 @@ sidebar{
   transition-duration: 50ms;
 }
 
+input[type="checkbox"]{
+  color: green;
+  background-color: green;
+  accent-color: green;
+}
+
 .trash {
   margin-right: 20px;
   box-sizing: border-box;
@@ -1052,12 +1058,14 @@ sidebar{
 }
 
 .trash:hover{
-  background-color: rgba(220, 38, 38, 0.8);
-  transition-duration: 200ms;
+  transition-duration: 100ms;
+  color:#f87171 ;
+  transform: scale(120%);
 }
 
 .trash:active{
   background-color: white;
+  color: white;
   transition-duration: 50ms ease-out;
 }
 

@@ -76,11 +76,14 @@ export default function DomHandel(){
         })
 
         save_btn.addEventListener('click',()=>{
-            console.log(input.value, '123')
             if (input.value == ""){
                 alertmessage("Please enter a Valid Project name")
-
             }
+            else if (input.value.length > 50){
+                alertmessage("Project Name cannot be more than 50 charchter")
+            }
+
+            
             else{
                 addProject(input.value)
                 dialog.close()
