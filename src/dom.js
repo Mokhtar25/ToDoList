@@ -1,121 +1,84 @@
 import ProjectGen from "./modules/project";
 
+export default function DomHandel() {
+  const makeproject = ProjectGen();
+  const add_project_btn = document.querySelector(".add_project_btn");
+  const close_project = document.querySelector(".exit_project_btn");
+  let add_note_btn = document.querySelector("class");
+  let sidemeanu = document.querySelector(".project_list");
+  const project_list = [];
 
-export default function DomHandel(){
-    
-    const makeproject = ProjectGen()
-    const add_project_btn = document.querySelector('.add_project_btn');
-    const close_project = document.querySelector('.exit_project_btn')
-    let add_note_btn = document.querySelector('class');
-    let sidemeanu = document.querySelector('.project_list');
-    const project_list = []
-    
-    
-    function addProject(project1){
-        const project = makeproject(project1) 
-        project_list.push(project)
+  function addProject(project1) {
+    const project = makeproject(project1);
+    project_list.push(project);
 
-        const new_div = document.createElement('div');
-        new_div.classList.add('project_item');
-        new_div.textContent = project.project_name
-        new_div.value = project.number
-        addlistner(new_div);
-        sidemeanu.appendChild(new_div)
-        
+    const new_div = document.createElement("div");
+    new_div.classList.add("project_item");
+    new_div.textContent = project.project_name;
+    new_div.value = project.number;
+    addlistner(new_div);
+    sidemeanu.appendChild(new_div);
 
-        function addlistner(div){
-            div.addEventListener('click', ()=> displayMain(project.list))
-        }
+    function addlistner(div) {
+      div.addEventListener("click", () => displayMain(project.list));
     }
+  }
 
-    function addNoteManual(pname, title, notes, date, important){
-        pname.list.addNote(title, notes, date, important)
-    }
+  function addNoteManual(pname, title, notes, date, important) {
+    pname.list.addNote(title, notes, date, important);
+  }
 
+  function refresh() {
+    add_note_btn = document.querySelector("class");
+    sidemeanu = document.querySelector(".project_list");
+  }
 
-    function refresh(){
-        
-    add_note_btn = document.querySelector('class');
-    sidemeanu = document.querySelector('.project_list');
-    }
+  function displayMain(list) {
+    const items = list.getItems();
+    console.log(items);
+  }
 
-    function displayMain(list){
-        
-        const items = list.getItems()
-        console.log(items)
+  function functionality() {
+    const dialog = document.querySelector("#modal");
+    const input = document.querySelector(".add_project input");
+    const save_btn = document.querySelector(".submit_project");
 
-    }
+    dialog.close();
+    add_project_btn.addEventListener("click", () => {
+      dialog.show();
+    });
+    close_project.addEventListener("click", () => {
+      input.value = "";
+      dialog.close();
+    });
 
+    save_btn.addEventListener("click", () => {
+      if (input.value == "") {
+        alertmessage("Please enter a Valid Project name");
+      } else if (input.value.length > 50) {
+        alertmessage("Project Name cannot be more than 50 charchter");
+      } else {
+        addProject(input.value);
+        dialog.close();
+        input.value = "";
+      }
+    });
 
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        save_btn.click();
+      }
+    });
+  }
 
+  functionality();
 
+  function alertmessage(mess) {
+    const alert = document.querySelector(".alert");
+    alert.textContent = mess;
+    alert.classList.add("alert_show");
+    setTimeout(() => alert.classList.remove("alert_show"), 5000);
+  }
 
-
-
-
-
-    function functionality(){
-
-
-        const dialog = document.querySelector('#modal');
-        const input = document.querySelector('.add_project input')
-        const save_btn = document.querySelector('.submit_project')
-
-    
-
-        dialog.close()
-    add_project_btn.addEventListener('click', ()=>{
-        
-        dialog.show()
-
-        
-    })
-        close_project.addEventListener('click', ()=>{
-            input.value = ""
-            dialog.close()
-        })
-
-        save_btn.addEventListener('click',()=>{
-            if (input.value == ""){
-                alertmessage("Please enter a Valid Project name")
-            }
-            else if (input.value.length > 50){
-                alertmessage("Project Name cannot be more than 50 charchter")
-            }
-
-            
-            else{
-                addProject(input.value)
-                dialog.close()
-                input.value = ""
-            }
-        })
-
-
-        input.addEventListener('keypress', (e)=>{
-            if (e.key === 'Enter'){
-                
-                save_btn.click()
-            }
-        })
-
-    }
-    
-    functionality()
-
-    function alertmessage(mess){
-        const alert = document.querySelector('.alert')
-        alert.textContent = mess
-        alert.classList.add('alert_show')
-        setTimeout(()=> alert.classList.remove("alert_show"), 5000)
-        
-    }
-
-
-    return {addProject, refresh, addNoteManual, displayMain, project_list}
+  return { addProject, refresh, addNoteManual, displayMain, project_list };
 }
-
-
-
-
-

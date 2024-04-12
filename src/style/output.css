@@ -594,6 +594,10 @@ video {
   grid-column-end: 2;
 }
 
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -788,6 +792,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -894,41 +903,42 @@ video {
   text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
 }
 
-*{
+* {
   box-sizing: border-box;
   transition: all 500ms ease-in-out;
 }
 
-:root{
-  scrollbar-width: none
+:root {
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0px;
 }
 
-.alert{
+.alert {
   right: -100%;
   /* Initially hide the alert off the left side */
   transform: translate(50%, 10%);
   transition: right 0.5s ease-in-out;
 }
 
-.alert_show{
+.alert_show {
   right: 10%;
 }
 
-html, body{
-  padding: 0 0 ;
-  margin:  0 0;
+html,
+body {
+  padding: 0 0;
+  margin: 0 0;
 }
 
-sidebar{
+sidebar {
   overflow-y: auto;
   height: calc(100vh - 20px);
 }
 
-.notewrap{
+.notewrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -944,21 +954,21 @@ sidebar{
   padding-left: 5px;
   font-size: 1.4rem;
   cursor: pointer;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.notewrap:hover{
+.notewrap:hover {
   border-left-width: 20px;
   background-color: #fef2f2;
 }
 
-.notewrap:active{
+.notewrap:active {
   background-color: white;
   color: white;
   transition-duration: 50ms;
 }
 
-.notewrap ul{
+.notewrap ul {
   display: flex;
   gap: 1rem;
   list-style-type: none;
@@ -967,11 +977,11 @@ sidebar{
   padding: 5px;
 }
 
-.notewrap ul li{
+.notewrap ul li {
   color: red;
 }
 
-.notewrap ul li:first-of-type{
+.notewrap ul li:first-of-type {
   color: green;
 }
 
@@ -984,31 +994,40 @@ sidebar{
   font-size: 1.3rem;
   text-shadow: 0.3px 0.3px 0.3px black;
   padding: 10px;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
 }
 
-.project_item:hover{
+.project_item:hover {
   border-left: 20px solid whitesmoke;
-  background: rgba(255,255,255, .4);
-  border-radius: .65rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0.65rem;
   cursor: pointer;
 }
 
-.project_item:active{
+.project_item:active {
   background-color: #fecaca;
   border-left: 20px solid white;
   /* transition: all 50ms ease-out; */
   transition-duration: 50ms;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
   color: green;
+  position: relative;
   background-color: green;
   accent-color: green;
+  scale: 150%;
+  margin-right: 1rem;
+}
+
+.done::before {
+  content: "Done";
+  display: relative;
+  padding-right: 1rem;
 }
 
 .trash {
@@ -1016,17 +1035,17 @@ input[type="checkbox"]{
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
+  transform: scale(var(--ggs, 1));
   width: 10px;
   height: 12px;
   border: 2px solid transparent;
   box-shadow:
-        0 0 0 2px,
-        inset -2px 0 0,
-        inset 2px 0 0;
+    0 0 0 2px,
+    inset -2px 0 0,
+    inset 2px 0 0;
   border-bottom-left-radius: 1px;
   border-bottom-right-radius: 1px;
-  margin-top: 4px
+  margin-top: 4px;
 }
 
 .trash::after,
@@ -1034,7 +1053,7 @@ input[type="checkbox"]{
   content: "";
   display: block;
   box-sizing: border-box;
-  position: absolute
+  position: absolute;
 }
 
 .trash::after {
@@ -1043,7 +1062,7 @@ input[type="checkbox"]{
   width: 16px;
   height: 2px;
   top: -4px;
-  left: -5px
+  left: -5px;
 }
 
 .trash::before {
@@ -1054,16 +1073,16 @@ input[type="checkbox"]{
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   top: -7px;
-  left: -2px
+  left: -2px;
 }
 
-.trash:hover{
+.trash:hover {
   transition-duration: 100ms;
-  color:#f87171 ;
+  color: #f87171;
   transform: scale(120%);
 }
 
-.trash:active{
+.trash:active {
   background-color: white;
   color: white;
   transition-duration: 50ms ease-out;
@@ -1163,5 +1182,3 @@ input[type="checkbox"]{
   --tw-text-opacity: 1;
   color: rgb(127 29 29 / var(--tw-text-opacity));
 }
-
-
