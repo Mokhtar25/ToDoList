@@ -20,8 +20,10 @@ export default function DomHandel() {
     sidemeanu.appendChild(new_div);
 
     function addlistner(div) {
-      div.addEventListener("click", () => displayMain(project.list));
-      current_project = project;
+      div.addEventListener("click", () => {
+        current_project = project;
+        displayMain(project.list);
+      });
     }
   }
 
@@ -47,7 +49,7 @@ export default function DomHandel() {
 
       const note = document.createElement("div");
       note.classList.add("note");
-      note.textContent = element.note;
+      note.textContent = element.name;
 
       wraper.appendChild(note);
       frag.appendChild(wraper);
@@ -91,17 +93,25 @@ export default function DomHandel() {
   addprojectbtn();
 
   function addnote() {
-    const dialog = document.querySelector(".add_note_dialog");
+    const dialog = document.querySelector("#noted");
     const add_note_btn = document.querySelector(".add_note");
-    const save_btn = document.querySelector(".add_note_dialog submit_note");
+    const save_btn = document.querySelector(".submit_note");
+    const title = document.querySelector("#noted .title");
+    const note = document.querySelector("#noted .note");
+    // const date = document.querySelector("#noted .date");
+    // const range = document.querySelector("#noted .range");
     add_note_btn.addEventListener("click", () => {
       dialog.show();
     });
     save_btn.addEventListener("click", () => {
       dialog.close();
-      current_project.list.addItem("1", 3, 4, 6);
+
+      console.dir(current_project);
+      current_project.list.addItem(title.value, note.value, 12331, "sda");
+      displayMain(current_project.list);
     });
   }
+  addnote();
 
   function alertmessage(mess) {
     const alert = document.querySelector(".alert");
