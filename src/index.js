@@ -7,4 +7,9 @@ const dom = DomHandel();
 
 dom.addProject("school");
 dom.project_list[0].list.addItem("hello", "aads", "12-12-2001", 2);
+dom.project_list[0].list.addItem("hello", "aads", "12-12-2001", 2);
+dom.project_list[0].list.addItem("hello", "aads", "12-12-2001", 2);
 dom.addProject("Javascript");
+dom.project_list[1].list.addItem("hello", "aads", "12-12-2001", 2);
+dom.project_list[1].list.addItem("hello", "aads", "12-12-2001", 2);
+console.dir(dom);

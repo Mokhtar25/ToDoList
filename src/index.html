@@ -72,7 +72,7 @@
           </h1>
           <ul class="group flex gap-3">
             <li
-              class="link inline-block h-fit cursor-pointer select-none text-red-800 duration-[50ms] after:block after:origin-[100%_50%] after:scale-0 after:border-b-2 after:border-red-200 after:transition-transform after:duration-500 after:ease-in-out hover:text-red-500 hover:after:scale-100 active:text-red-900"
+              class="link add_note inline-block h-fit cursor-pointer select-none text-red-800 duration-[50ms] after:block after:origin-[100%_50%] after:scale-0 after:border-b-2 after:border-red-200 after:transition-transform after:duration-500 after:ease-in-out hover:text-red-500 hover:after:scale-100 active:text-red-900"
             >
               add notes
             </li>
@@ -91,7 +91,7 @@
           </ul>
         </div>
 
-        <section class="grid">
+        <section class="notes_wrap grid">
           <div class="notewrap">
             <div class="note">hello world</div>
             <ul class="list">
@@ -117,6 +117,28 @@
             </ul>
           </div>
         </section>
+        <dialog
+          open
+          class="add_note_dialog h-44 w-[60%] min-w-[200px] flex-col gap-3 bg-red-100 open:flex"
+        >
+          <input
+            class="title"
+            type="text"
+            name="name"
+            placeholder="To do"
+            value=""
+          />
+          <input
+            class="note"
+            type="text"
+            name="note"
+            placeholder="notes"
+            value=""
+          />
+          <input class="date" type="date" name="date" value="" />
+          <input type="range" name="important" value="" />
+          <button class="submit_note">Save!</button>
+        </dialog>
       </main>
     </div>
   </body>

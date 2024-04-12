@@ -4,8 +4,8 @@ export default function DomHandel() {
   const makeproject = ProjectGen();
   const add_project_btn = document.querySelector(".add_project_btn");
   const close_project = document.querySelector(".exit_project_btn");
-  let add_note_btn = document.querySelector("class");
   let sidemeanu = document.querySelector(".project_list");
+  let current_project;
   const project_list = [];
 
   function addProject(project1) {
@@ -21,6 +21,7 @@ export default function DomHandel() {
 
     function addlistner(div) {
       div.addEventListener("click", () => displayMain(project.list));
+      current_project = project;
     }
   }
 
@@ -35,10 +36,26 @@ export default function DomHandel() {
 
   function displayMain(list) {
     const items = list.getItems();
-    console.log(items);
+
+    const container = document.querySelector(".notes_wrap");
+    container.innerHTML = "";
+    items.forEach((element) => {
+      const frag = document.createDocumentFragment();
+
+      const wraper = document.createElement("div");
+      wraper.classList.add("notewrap");
+
+      const note = document.createElement("div");
+      note.classList.add("note");
+      note.textContent = element.note;
+
+      wraper.appendChild(note);
+      frag.appendChild(wraper);
+      container.appendChild(frag);
+    });
   }
 
-  function functionality() {
+  function addprojectbtn() {
     const dialog = document.querySelector("#modal");
     const input = document.querySelector(".add_project input");
     const save_btn = document.querySelector(".submit_project");
@@ -71,7 +88,20 @@ export default function DomHandel() {
     });
   }
 
-  functionality();
+  addprojectbtn();
+
+  function addnote() {
+    const dialog = document.querySelector(".add_note_dialog");
+    const add_note_btn = document.querySelector(".add_note");
+    const save_btn = document.querySelector(".add_note_dialog submit_note");
+    add_note_btn.addEventListener("click", () => {
+      dialog.show();
+    });
+    save_btn.addEventListener("click", () => {
+      dialog.close();
+      current_project.list.addItem("1", 3, 4, 6);
+    });
+  }
 
   function alertmessage(mess) {
     const alert = document.querySelector(".alert");
