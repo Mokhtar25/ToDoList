@@ -5,8 +5,8 @@ export default function DomHandel() {
   const add_project_btn = document.querySelector(".add_project_btn");
   const close_project = document.querySelector(".exit_project_btn");
   let sidemeanu = document.querySelector(".project_list");
-  let current_project;
   const project_list = [];
+  let current_project = false;
 
   function addProject(project1) {
     const project = makeproject(project1);
@@ -18,7 +18,6 @@ export default function DomHandel() {
     new_div.value = project.number;
     addlistner(new_div);
     sidemeanu.appendChild(new_div);
-
     function addlistner(div) {
       div.addEventListener("click", () => {
         current_project = project;
@@ -99,22 +98,47 @@ export default function DomHandel() {
     const title = document.querySelector("#noted .title");
     const note = document.querySelector("#noted .note");
     const date = document.querySelector("#noted .date");
-    const range = document.querySelector("#noted .range");
+    const important = document.querySelector("#noted .range");
+
+    function clear() {
+      date.value = "";
+      title.value = "";
+      important.checked = false;
+      note.value = "";
+    }
+    dialog.addEventListener("close", () => clear());
     add_note_btn.addEventListener("click", () => {
-      dialog.show();
+      dialog.showModal();
     });
     save_btn.addEventListener("click", () => {
-      dialog.close();
+      console.log(title.value, date.value);
+      if (title.value === "") {
+        alertmessage("Must enter a to do name");
+        return false;
+      }
+      if (date.value == "") {
+        alertmessage("must enter a due date");
+        return false;
+      }
 
-      console.dir(range);
       current_project.list.addItem(
         title.value,
         note.value,
         date.value,
-        range.value,
+        important.checked,
       );
 
+      if (current_project !== project_list[0]) {
+        project_list[0].list.addItem(
+          title.value,
+          note.value,
+          date.value,
+          important.checked,
+        );
+      }
+      dialog.close();
       displayMain(current_project.list);
+      clear();
     });
   }
   addnote();
@@ -126,5 +150,12 @@ export default function DomHandel() {
     setTimeout(() => alert.classList.remove("alert_show"), 5000);
   }
 
-  return { addProject, refresh, addNoteManual, displayMain, project_list };
+  return {
+    addProject,
+    displayMain,
+    refresh,
+    addNoteManual,
+    displayMain,
+    project_list,
+  };
 }
