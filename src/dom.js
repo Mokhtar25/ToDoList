@@ -98,8 +98,8 @@ export default function DomHandel() {
     const save_btn = document.querySelector(".submit_note");
     const title = document.querySelector("#noted .title");
     const note = document.querySelector("#noted .note");
-    // const date = document.querySelector("#noted .date");
-    // const range = document.querySelector("#noted .range");
+    const date = document.querySelector("#noted .date");
+    const range = document.querySelector("#noted .range");
     add_note_btn.addEventListener("click", () => {
       dialog.show();
     });
@@ -107,7 +107,12 @@ export default function DomHandel() {
       dialog.close();
 
       console.dir(current_project);
-      current_project.list.addItem(title.value, note.value, 12331, "sda");
+      current_project.list.addItem(
+        title.value,
+        note.value,
+        date.value,
+        range.value,
+      );
       displayMain(current_project.list);
     });
   }

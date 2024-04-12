@@ -42,7 +42,7 @@ export default function CreateGen() {
     }
 
     function sortItems() {
-      items.sort((a, b) => compareAsc(a.date, b.date));
+      items.sort((a, b) => compareAsc(b.date, a.date));
     }
 
     return {
