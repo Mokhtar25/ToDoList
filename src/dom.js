@@ -106,13 +106,14 @@ export default function DomHandel() {
     save_btn.addEventListener("click", () => {
       dialog.close();
 
-      console.dir(current_project);
+      console.dir(range);
       current_project.list.addItem(
         title.value,
         note.value,
         date.value,
         range.value,
       );
+
       displayMain(current_project.list);
     });
   }

@@ -118,26 +118,52 @@
           </div>
         </section>
         <dialog
+          open
           id="noted"
-          class="add_note_dialog h-44 w-[60%] min-w-[200px] flex-col gap-3 bg-red-100 open:flex"
+          class="add_note_dialog w-[60%] min-w-[200px] flex-col justify-center gap-3 rounded-l bg-red-100 pb-8 open:flex"
         >
           <input
-            class="title"
+            class="title h-20 border-b-2 border-b-red-800 p-4 text-3xl outline-[0]"
             type="text"
             name="name"
-            placeholder="To do"
+            placeholder="Buy milk...."
             value=""
+            required
           />
           <input
-            class="note"
+            class="note felx h-28 border-b-2 border-b-red-800 p-4 text-xl outline-[0]"
             type="text"
             name="note"
-            placeholder="notes"
+            placeholder="Remember to Come back"
             value=""
           />
-          <input class="date" type="date" name="date" value="" />
-          <input class="range" type="range" name="important" value="" />
-          <button class="submit_note">Save!</button>
+          <div class="flex items-center justify-between gap-3 p-4">
+            <span class="flex gap-3">
+              <label for="check">Very Important</label>
+              <input
+                class="range cursor-pointer accent-red-800"
+                id="check"
+                type="checkbox"
+                name="important"
+                value=""
+            /></span>
+
+            <span>
+              <label for="date" class="p-2">Due Date</label>
+              <input
+                class="date h-10 cursor-pointer p-4"
+                type="date"
+                id="date"
+                name="date"
+                value=""
+            /></span>
+          </div>
+
+          <button
+            class="submit_note ml-auto mr-auto h-12 w-44 rounded-xl bg-white hover:bg-red-200 active:bg-white"
+          >
+            Save
+          </button>
         </dialog>
       </main>
     </div>
