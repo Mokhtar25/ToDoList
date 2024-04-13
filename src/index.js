@@ -13,7 +13,8 @@ dom.project_list[0].list.addItem(
   true,
 );
 
-dom.displayMain(dom.project_list[0].list);
+dom.runfirst();
+// dom.displayMain(dom.project_list[0].list);
 // dom.project_list[0].list.addItem("hello", "aads", "12-12-2001", 2);
 // dom.project_list[0].list.addItem("hello", "aads", "12-12-2001", 2);
 // dom.project_list[0].list.addItem("hello", "aads", "12-12-2001", 2);

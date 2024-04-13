@@ -26,6 +26,10 @@ export default function DomHandel() {
     }
   }
 
+  function runfirst() {
+    current_project = project_list[0];
+    displayMain(current_project.list);
+  }
   function addNoteManual(pname, title, notes, date, important) {
     pname.list.addNote(title, notes, date, important);
   }
@@ -100,6 +104,11 @@ export default function DomHandel() {
     const date = document.querySelector("#noted .date");
     const important = document.querySelector("#noted .range");
 
+    dialog.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        save_btn.click();
+      }
+    });
     function clear() {
       date.value = "";
       title.value = "";
@@ -111,7 +120,6 @@ export default function DomHandel() {
       dialog.showModal();
     });
     save_btn.addEventListener("click", () => {
-      console.log(title.value, date.value);
       if (title.value === "") {
         alertmessage("Must enter a to do name");
         return false;
@@ -155,7 +163,9 @@ export default function DomHandel() {
     displayMain,
     refresh,
     addNoteManual,
+    current_project,
     displayMain,
     project_list,
+    runfirst,
   };
 }
