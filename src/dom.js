@@ -30,6 +30,7 @@ export default function DomHandel() {
   }
 
   function runfirst() {
+    refreshmain();
     current_project = project_list[0];
     displayMain(current_project.list);
   }
@@ -37,13 +38,18 @@ export default function DomHandel() {
     pname.list.addItem(title, notes, date, important);
   }
 
-  function refresh() {
-    add_note_btn = document.querySelector("class");
-    sidemeanu = document.querySelector(".project_list");
+  function refreshmain() {
+    const todos = [];
+    project_list.forEach((e) => {
+      e.list.getItems().forEach((element) => {
+        todos.push(element);
+      });
+    });
+    project_list[0].list.items = todos;
   }
 
   function displayMain(list) {
-    const items = list.getItems();
+    const items = list.items;
 
     const container = document.querySelector(".notes_wrap");
     container.innerHTML = "";
@@ -93,7 +99,7 @@ export default function DomHandel() {
     });
     trash.addEventListener("click", () => {
       current_project.list.removeItem(note.id);
-      project_list[0].list.removeItem(note.id);
+      refreshmain();
 
       displayMain(current_project.list);
     });
@@ -175,14 +181,7 @@ export default function DomHandel() {
         important.checked,
       );
 
-      if (current_project !== project_list[0]) {
-        project_list[0].list.addItem(
-          title.value,
-          note.value,
-          date.value,
-          important.checked,
-        );
-      }
+      refreshmain();
       dialog.close();
       displayMain(current_project.list);
       clear();
@@ -200,7 +199,7 @@ export default function DomHandel() {
   return {
     addProject,
     displayMain,
-    refresh,
+    refreshmain,
     addNoteManual,
     current_project,
     displayMain,
