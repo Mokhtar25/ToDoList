@@ -1,3 +1,4 @@
+import Item from "./modules/ClassItem";
 import ProjectGen from "./modules/project";
 
 export default function DomHandel() {
@@ -18,6 +19,8 @@ export default function DomHandel() {
     new_div.value = project.number;
     addlistner(new_div);
     sidemeanu.appendChild(new_div);
+    current_project = project;
+    displayMain(project.list);
     function addlistner(div) {
       div.addEventListener("click", () => {
         current_project = project;
@@ -31,7 +34,7 @@ export default function DomHandel() {
     displayMain(current_project.list);
   }
   function addNoteManual(pname, title, notes, date, important) {
-    pname.list.addNote(title, notes, date, important);
+    pname.list.addItem(title, notes, date, important);
   }
 
   function refresh() {
@@ -53,10 +56,42 @@ export default function DomHandel() {
       const note = document.createElement("div");
       note.classList.add("note");
       note.textContent = element.name;
+      note.value = element.id;
 
+      const list = document.createElement("ul");
+      list.classList.add("list");
+      const box = document.createElement("li");
+      box.classList.add("done");
+      const input_box = document.createElement("input");
+      input_box.type = "checkbox";
+      input_box.checked = element.done;
+      box.appendChild(input_box);
+      list.appendChild(box);
+      const trash = document.createElement("li");
+      trash.classList.add("trash");
+      list.appendChild(trash);
+
+      addfunctoitem(wraper, input_box, trash, element);
       wraper.appendChild(note);
+      wraper.appendChild(list);
       frag.appendChild(wraper);
       container.appendChild(frag);
+    });
+  }
+  function addfunctoitem(wrap, checkbox, trash, note) {
+    checkbox.addEventListener("click", () => {
+      note.done = checkbox.checked;
+      if (note.done === true) {
+        wrap.classList.add("done_note");
+      } else {
+        wrap.classList.remove("done_note");
+      }
+    });
+    trash.addEventListener("click", () => {
+      current_project.list.removeItem(note.id);
+      project_list[0].list.removeItem(note.id);
+
+      displayMain(current_project.list);
     });
   }
 

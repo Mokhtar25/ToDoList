@@ -24,8 +24,8 @@ export default function CreateGen() {
       return items;
     }
 
-    function removeItem(name) {
-      let result = items.findIndex((item) => item.name === name);
+    function removeItem(id) {
+      let result = items.findIndex((item) => item.id === id);
 
       if (result === -1) {
         return 1;

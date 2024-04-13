@@ -24,15 +24,8 @@ export default class Item {
     }
     return (this.date = date);
   }
-  setPrior(num) {
-    if (num < 0) {
-      num = 0;
-    }
-    if (num > 3) {
-      num = 3;
-    }
-
-    return (this.important = num);
+  setPrior(kind) {
+    return (this.important = kind);
   }
   setDone(kind) {
     if (kind === true) {
