@@ -71,6 +71,10 @@ export default function DomHandel() {
       trash.classList.add("trash");
       list.appendChild(trash);
 
+      if (element.done === true) {
+        wraper.classList.add("done_note");
+      }
+
       addfunctoitem(wraper, input_box, trash, element);
       wraper.appendChild(note);
       wraper.appendChild(list);

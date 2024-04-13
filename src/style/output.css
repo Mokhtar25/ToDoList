@@ -616,26 +616,6 @@ video {
   top: 10%;
 }
 
-.top-\[20\%\] {
-  top: 20%;
-}
-
-.top-96 {
-  top: 24rem;
-}
-
-.top-6 {
-  top: 1.5rem;
-}
-
-.top-0 {
-  top: 0px;
-}
-
-.top-\[30\%\] {
-  top: 30%;
-}
-
 .top-\[15\%\] {
   top: 15%;
 }
@@ -650,11 +630,6 @@ video {
 
 .m-0 {
   margin: 0px;
-}
-
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
 .mx-auto {
@@ -680,14 +655,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-52 {
-  margin-top: 13rem;
-}
-
-.mb-52 {
-  margin-bottom: 13rem;
 }
 
 .inline-block {
@@ -727,10 +694,6 @@ video {
   height: 35px;
 }
 
-.h-\[40\%\] {
-  height: 40%;
-}
-
 .h-\[45px\] {
   height: 45px;
 }
@@ -758,10 +721,6 @@ video {
 
 .w-\[35px\] {
   width: 35px;
-}
-
-.w-\[40\%\] {
-  width: 40%;
 }
 
 .w-\[45px\] {
@@ -816,12 +775,6 @@ video {
 
 .gap-5 {
   gap: 1.25rem;
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .rounded-2xl {
@@ -989,11 +942,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-8xl {
-  font-size: 6rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -1236,6 +1184,39 @@ input[type="checkbox"] {
   background-color: white;
   color: white;
   transition-duration: 50ms ease-out;
+}
+
+.done_note {
+  position: relative;
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.done_note::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
+.done_note:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.done_note:hover::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
+.done_note::after {
+  position: absolute;
+  width: 80%;
+  display: block;
+  content: "";
+  height: 5%;
 }
 
 .after\:block::after {

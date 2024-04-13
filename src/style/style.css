@@ -174,3 +174,14 @@ input[type="checkbox"] {
   color: white;
   transition-duration: 50ms ease-out;
 }
+
+.done_note {
+  @apply relative bg-red-600 text-white after:bg-red-100 hover:bg-red-400 after:hover:bg-red-700;
+}
+.done_note::after {
+  position: absolute;
+  width: 80%;
+  display: block;
+  content: "";
+  height: 5%;
+}

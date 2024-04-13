@@ -12,6 +12,7 @@ dom.project_list[0].list.addItem(
   "12-12-2001",
   true,
 );
+dom.project_list[0].list.getItems()[0].done = true;
 
 dom.addNoteManual(
   dom.project_list[0],
