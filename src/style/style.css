@@ -185,3 +185,6 @@ input[type="checkbox"] {
   content: "";
   height: 5%;
 }
+.hide {
+  @apply hidden scale-0;
+}

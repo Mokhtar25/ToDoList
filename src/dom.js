@@ -98,10 +98,11 @@ export default function DomHandel() {
       }
     });
     trash.addEventListener("click", () => {
+      wrap.classList.add("hide");
       project.list.removeItem(note.id);
       refreshmain();
 
-      displayMain(current_project);
+      // displayMain(current_project);
     });
   }
 
