@@ -63,7 +63,7 @@ export default function DomHandel() {
 
     dialog.close();
     add_project_btn.addEventListener("click", () => {
-      dialog.show();
+      dialog.showModal();
     });
     close_project.addEventListener("click", () => {
       input.value = "";
