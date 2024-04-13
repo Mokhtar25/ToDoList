@@ -20,11 +20,11 @@ export default function DomHandel() {
     addlistner(new_div);
     sidemeanu.appendChild(new_div);
     current_project = project;
-    displayMain(project.list);
+    displayMain(project);
     function addlistner(div) {
       div.addEventListener("click", () => {
         current_project = project;
-        displayMain(project.list);
+        displayMain(project);
       });
     }
   }
@@ -32,7 +32,7 @@ export default function DomHandel() {
   function runfirst() {
     refreshmain();
     current_project = project_list[0];
-    displayMain(current_project.list);
+    displayMain(current_project);
   }
   function addNoteManual(pname, title, notes, date, important) {
     pname.list.addItem(title, notes, date, important);
@@ -48,8 +48,8 @@ export default function DomHandel() {
     project_list[0].list.items = todos;
   }
 
-  function displayMain(list) {
-    const items = list.items;
+  function displayMain(project) {
+    const items = project.list.items;
 
     const container = document.querySelector(".notes_wrap");
     container.innerHTML = "";
@@ -81,14 +81,14 @@ export default function DomHandel() {
         wraper.classList.add("done_note");
       }
 
-      addfunctoitem(wraper, input_box, trash, element);
+      addfunctoitem(wraper, input_box, trash, element, project);
       wraper.appendChild(note);
       wraper.appendChild(list);
       frag.appendChild(wraper);
       container.appendChild(frag);
     });
   }
-  function addfunctoitem(wrap, checkbox, trash, note) {
+  function addfunctoitem(wrap, checkbox, trash, note, project) {
     checkbox.addEventListener("click", () => {
       note.done = checkbox.checked;
       if (note.done === true) {
@@ -98,10 +98,10 @@ export default function DomHandel() {
       }
     });
     trash.addEventListener("click", () => {
-      current_project.list.removeItem(note.id);
+      project.list.removeItem(note.id);
       refreshmain();
 
-      displayMain(current_project.list);
+      displayMain(current_project);
     });
   }
 
@@ -183,7 +183,7 @@ export default function DomHandel() {
 
       refreshmain();
       dialog.close();
-      displayMain(current_project.list);
+      displayMain(current_project);
       clear();
     });
   }
