@@ -42,6 +42,7 @@ export default function DomHandel() {
     const todos = [];
     project_list.forEach((e) => {
       e.list.getItems().forEach((element) => {
+        element.project = e.number;
         todos.push(element);
       });
     });
@@ -99,10 +100,20 @@ export default function DomHandel() {
     });
     trash.addEventListener("click", () => {
       wrap.classList.add("hide");
+      console.dir(note);
+      console.dir(project);
+      if (note.project != "") {
+        let index = project_list.findIndex((e) => {
+          if (e.number === note.project) {
+            return true;
+          }
+        });
+        project_list[index].list.removeItem(note.id);
+      }
       project.list.removeItem(note.id);
       refreshmain();
-
-      // displayMain(current_project);
+      // add stuff to edit the items it self or delete it without interfiranxe:
+      displayMain(current_project);
     });
   }
 
