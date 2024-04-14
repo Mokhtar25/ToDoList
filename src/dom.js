@@ -41,27 +41,18 @@ export default function DomHandel() {
   function refreshmain() {
     const todos = [];
     project_list.forEach((e) => {
-      e.list.items.forEach((element) => {
-        if (e.number !== 0) {
-          element.project = e.number;
-        }
+      e.list.getItems().forEach((element) => {
+        element.project = e.number;
         todos.push(element);
       });
     });
     project_list[0].list.items = todos;
-    console.log(project_list[0].list);
   }
 
   function displayMain(project) {
     const items = project.list.items;
 
     const container = document.querySelector(".notes_wrap");
-    if (items.length === 0) {
-      container.textContent = "New Project, Add Notes to Start";
-      container.classList.add("empty");
-      return;
-    }
-    container.classList.remove("empty");
     container.innerHTML = "";
     items.forEach((element) => {
       const frag = document.createDocumentFragment();
@@ -108,10 +99,10 @@ export default function DomHandel() {
       }
     });
     trash.addEventListener("click", () => {
-      // wrap.classList.add("hide");
+      wrap.classList.add("hide");
       console.dir(note);
       console.dir(project);
-      if (note.project !== undefined) {
+      if (note.project != "") {
         let index = project_list.findIndex((e) => {
           if (e.number === note.project) {
             return true;
@@ -126,11 +117,6 @@ export default function DomHandel() {
     });
   }
 
-  function index(e) {
-    if (e.number === note.project) {
-      return true;
-    }
-  }
   function addprojectbtn() {
     const dialog = document.querySelector("#modal");
     const input = document.querySelector(".add_project input");
