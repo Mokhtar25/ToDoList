@@ -53,6 +53,12 @@ export default function DomHandel() {
     const items = project.list.items;
 
     const container = document.querySelector(".notes_wrap");
+    if (items.length === 0) {
+      container.textContent = "New Project, Add Notes to Start";
+      container.classList.add("empty");
+      return;
+    }
+    container.classList.remove("empty");
     container.innerHTML = "";
     items.forEach((element) => {
       const frag = document.createDocumentFragment();

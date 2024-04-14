@@ -188,3 +188,7 @@ input[type="checkbox"] {
 .hide {
   @apply hidden scale-0;
 }
+
+.empty {
+  @apply flex items-center justify-center py-28 text-6xl text-red-200/50;
+}
