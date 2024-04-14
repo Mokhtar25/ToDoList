@@ -4,7 +4,7 @@
 
 * {
   box-sizing: border-box;
-  transition: all 300ms ease-in-out;
+  transition: all 100ms ease-in-out;
 }
 :root {
   scrollbar-width: none;
