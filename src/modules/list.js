@@ -9,7 +9,7 @@ export default function CreateGen() {
     listnum++;
     const number = listnum;
     const project = pro;
-    let items = [];
+    const items = [];
 
     function addItem(title, notes, date, important) {
       const newItem = new Item(title);
@@ -20,9 +20,9 @@ export default function CreateGen() {
       this.items.push(newItem);
       sortItems();
     }
-    function getItems() {
-      return items;
-    }
+    // function getItems() {
+    //   return items;
+    // }
 
     function removeItem(id) {
       let result = items.findIndex((item) => item.id === id);
@@ -48,7 +48,6 @@ export default function CreateGen() {
     return {
       addItem,
       removeItem,
-      getItems,
       items,
       sortItems,
       number,

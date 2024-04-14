@@ -6,7 +6,7 @@ const listMaker = (project_name) => {
 };
 
 export default function ProjectGen() {
-  let projcetNum = 1;
+  let projcetNum = 0;
 
   return function CreateProject(project_namea) {
     const number = projcetNum;
