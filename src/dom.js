@@ -1,13 +1,29 @@
-import Item from "./modules/ClassItem";
 import ProjectGen from "./modules/project";
 
 export default function DomHandel() {
+  // ProjectGen.projectNum = localStorage.getItem("project");
+  // console.log(ProjectGen.projectNum);
   const makeproject = ProjectGen();
+  // makeproject.number = localStorage.getItem("project");
+
   const add_project_btn = document.querySelector(".add_project_btn");
   const close_project = document.querySelector(".exit_project_btn");
   let sidemeanu = document.querySelector(".project_list");
-  const project_list = [];
+  let project_list = [];
+  let data = JSON.parse(localStorage.getItem("list"));
+  project_list = data;
+  console.log(project_list);
   let current_project = false;
+
+  function first() {
+    project_list.forEach((e) => {
+      addProject(e.project_name);
+      e.list.items.forEach((item) => {
+        addNoteManual(e, item.title, item.notes, item.dueDate, true);
+      });
+    });
+  }
+  first();
 
   function addProject(project1) {
     const project = makeproject(project1);
@@ -21,12 +37,15 @@ export default function DomHandel() {
     sidemeanu.appendChild(new_div);
     current_project = project;
     displayMain(project);
+
+    savetolocal(project_list);
     function addlistner(div) {
       div.addEventListener("click", () => {
         current_project = project;
         displayMain(project);
       });
     }
+    savetolocal(project_list);
   }
 
   function runfirst() {
@@ -106,8 +125,6 @@ export default function DomHandel() {
     });
     trash.addEventListener("click", () => {
       wrap.classList.add("hide");
-      console.dir(note);
-      console.dir(project);
       if (note.project != "") {
         let index = project_list.findIndex((e) => {
           if (e.number === note.project) {
@@ -214,6 +231,19 @@ export default function DomHandel() {
     setTimeout(() => alert.classList.remove("alert_show"), 5000);
   }
 
+  function savetolocal(old) {
+    localStorage.removeItem("list");
+    localStorage.removeItem("project");
+    const make = makeproject().number;
+    const data1 = JSON.stringify(project_list);
+    localStorage.setItem("list", data1);
+    localStorage.setItem("project", make);
+  }
+  function getstore() {
+    console.log(localStorage);
+    data = localStorage.getItem("list");
+    return JSON.parse(data);
+  }
   return {
     addProject,
     displayMain,
