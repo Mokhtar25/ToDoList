@@ -1,26 +1,24 @@
 import ProjectGen from "./modules/project";
 
 export default function DomHandel() {
-  // ProjectGen.projectNum = localStorage.getItem("project");
-  // console.log(ProjectGen.projectNum);
   const makeproject = ProjectGen();
-  // makeproject.number = localStorage.getItem("project");
 
   const add_project_btn = document.querySelector(".add_project_btn");
   const close_project = document.querySelector(".exit_project_btn");
   let sidemeanu = document.querySelector(".project_list");
   let project_list = [];
-  let data = JSON.parse(localStorage.getItem("list"));
   let current_project = false;
 
   function first() {
-    const data = JSON.parse(localStorage.getItem("list"));
+    const data = getstore();
     data.forEach((e) => {
       const pro = addProject(e.project_name);
+      current_project = pro;
       e.list.items.forEach((item) => {
-        addNoteManual(pro, item.name, item.note, item.date, true);
+        addNoteManual(current_project, item.name, item.note, item.date, true);
       });
     });
+    displayMain(project_list[0]);
   }
   first();
 
@@ -37,14 +35,14 @@ export default function DomHandel() {
     current_project = project;
     displayMain(project);
 
-    savetolocal(project_list);
+    savetolocal();
     function addlistner(div) {
       div.addEventListener("click", () => {
         current_project = project;
         displayMain(project);
       });
     }
-    savetolocal(project_list);
+    savetolocal();
     return project;
   }
 
@@ -122,6 +120,7 @@ export default function DomHandel() {
       } else {
         wrap.classList.remove("done_note");
       }
+      savetolocal();
     });
     trash.addEventListener("click", () => {
       wrap.classList.add("hide");
@@ -137,6 +136,7 @@ export default function DomHandel() {
       refreshmain();
       // add stuff to edit the items it self or delete it without interfiranxe:
       displayMain(current_project);
+      savetolocal();
     });
   }
 
@@ -220,6 +220,7 @@ export default function DomHandel() {
       dialog.close();
       displayMain(current_project);
       clear();
+      savetolocal();
     });
   }
   addnote();
@@ -231,17 +232,13 @@ export default function DomHandel() {
     setTimeout(() => alert.classList.remove("alert_show"), 5000);
   }
 
-  function savetolocal(old) {
+  function savetolocal() {
     localStorage.removeItem("list");
-    localStorage.removeItem("project");
-    const make = makeproject().number;
     const data1 = JSON.stringify(project_list);
     localStorage.setItem("list", data1);
-    localStorage.setItem("project", make);
   }
   function getstore() {
-    console.log(localStorage);
-    data = localStorage.getItem("list");
+    const data = localStorage.getItem("list");
     return JSON.parse(data);
   }
   return {
@@ -253,5 +250,6 @@ export default function DomHandel() {
     displayMain,
     project_list,
     runfirst,
+    first,
   };
 }

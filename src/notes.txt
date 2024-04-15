@@ -3,4 +3,4 @@ you need to figure the numbering of the object as well
 add notes reading display
 add removing a project
 add edtating a note
-add sorting based on importance 
+a:dd sorting based on importance:
