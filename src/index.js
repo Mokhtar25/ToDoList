@@ -24,7 +24,6 @@ data.forEach((ele) => {
   });
 });
 //
-dom.refreshmain();
 dom.runfirst();
 //
 // dom.addProject("My Tasks");
