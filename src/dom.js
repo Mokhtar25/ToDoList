@@ -11,15 +11,14 @@ export default function DomHandel() {
   let sidemeanu = document.querySelector(".project_list");
   let project_list = [];
   let data = JSON.parse(localStorage.getItem("list"));
-  project_list = data;
-  console.log(project_list);
   let current_project = false;
 
   function first() {
-    project_list.forEach((e) => {
-      addProject(e.project_name);
+    const data = JSON.parse(localStorage.getItem("list"));
+    data.forEach((e) => {
+      const pro = addProject(e.project_name);
       e.list.items.forEach((item) => {
-        addNoteManual(e, item.title, item.notes, item.dueDate, true);
+        addNoteManual(pro, item.name, item.note, item.date, true);
       });
     });
   }
@@ -46,6 +45,7 @@ export default function DomHandel() {
       });
     }
     savetolocal(project_list);
+    return project;
   }
 
   function runfirst() {
