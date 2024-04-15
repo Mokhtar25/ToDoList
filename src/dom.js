@@ -20,7 +20,7 @@ export default function DomHandel() {
     });
     displayMain(project_list[0]);
   }
-  first();
+  // first();
 
   function addProject(project1) {
     const project = makeproject(project1);
@@ -216,11 +216,11 @@ export default function DomHandel() {
         important.checked,
       );
 
+      savetolocal();
       refreshmain();
       dialog.close();
       displayMain(current_project);
       clear();
-      savetolocal();
     });
   }
   addnote();

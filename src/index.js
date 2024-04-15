@@ -6,33 +6,48 @@ const dom = DomHandel();
 
 const local = new Local();
 
-// console.log(localStorage);
-// if (localStorage.length < 1) {
-//   dom.first();
-// } else {
-//   dom.addProject("My Tasks");
-//   //
-//   dom.addProject("Programming");
-//   dom.project_list[1].list.addItem(
-//     "in programming",
-//     "do that",
-//     "12-12-2000",
-//     true,
-//   );
-//   dom.project_list[0].list.addItem(
-//     "Buy games",
-//     "form this store",
-//     "12-12-2001",
-//     true,
-//   );
+const data = JSON.parse(localStorage.getItem("list"));
+
+let num = data.length;
+data.forEach((ele) => {
+  const project = dom.addProject(ele.project_name);
+
+  ele.list.items.forEach((element) => {
+    console.log(element, element.project);
+    dom.addNoteManual(
+      project,
+      element.name,
+      element.note,
+      element.date,
+      element.important,
+    );
+  });
+});
 //
-//   dom.addNoteManual(
-//     dom.project_list[0],
-//     "Make a to do list website",
-//     "do it well",
-//     "12-12-2024",
-//     true,
-//   );
+dom.refreshmain();
+dom.runfirst();
+//
+// dom.addProject("My Tasks");
+//
+// dom.addProject("Programming");
+// dom.project_list[1].list.addItem(
+//   "in programming",
+//   "do that",
+//   "12-12-2000",
+//   true,
+// );
+// dom.project_list[0].list.addItem(
+//   "Buy games",
+//   "form this store",
+//   "12-12-2001",
+//   true,
+// );
+//
+// dom.addNoteManual(
+//   dom.project_list[0],
+//   "Make a to do list website",
+//   "do it well",
+//   "12-12-2024",
+//   true,
+// );
 // dom.runfirst();
-// }
-//
