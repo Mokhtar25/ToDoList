@@ -49,5 +49,6 @@ if (data) {
     "12-12-2024",
     true,
   );
+  dom.savetolocal();
 }
 dom.runfirst();
