@@ -8,12 +8,10 @@ const local = new Local();
 
 const data = JSON.parse(localStorage.getItem("list"));
 
-let num = data.length;
 data.forEach((ele) => {
   const project = dom.addProject(ele.project_name);
 
   ele.list.items.forEach((element) => {
-    console.log(element, element.project);
     dom.addNoteManual(
       project,
       element.name,

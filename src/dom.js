@@ -60,7 +60,9 @@ export default function DomHandel() {
     project_list.forEach((e) => {
       e.list.getItems().forEach((element) => {
         element.project = e.number;
-        todos.push(element);
+        if (todos.findIndex((e) => element.name === e.name) === -1) {
+          todos.push(element);
+        }
       });
     });
     project_list[0].list.items = todos;
