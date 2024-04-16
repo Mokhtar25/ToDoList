@@ -33,8 +33,8 @@ export default function CreateGen() {
       items.splice(result, 1);
     }
 
-    function itemDone(name, done) {
-      let result = items.findIndex((item) => item.name === name);
+    function itemDone(id, done) {
+      let result = items.findIndex((item) => item.id === id);
       if (result === -1) {
         return 1;
       }
