@@ -23,7 +23,7 @@ data.forEach((ele) => {
     if (element.done === true) {
       project.list.itemDone(element.id, true);
     }
-    // dom.current_project.list.itemDone(element.id, true);
+    dom.savetolocal();
   });
 });
 //

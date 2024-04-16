@@ -32,7 +32,8 @@ export default function DomHandel() {
     new_div.value = project.number;
     addlistner(new_div);
     sidemeanu.appendChild(new_div);
-    current_project = project;
+    const index = project_list.length - 1;
+    current_project = project_list[index];
     displayMain(project);
 
     savetolocal();
@@ -218,10 +219,10 @@ export default function DomHandel() {
         important.checked,
       );
 
-      savetolocal();
       refreshmain();
       dialog.close();
       displayMain(current_project);
+      savetolocal();
       clear();
     });
   }
@@ -252,6 +253,7 @@ export default function DomHandel() {
     displayMain,
     project_list,
     runfirst,
+    savetolocal,
     first,
   };
 }
